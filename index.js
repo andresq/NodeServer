@@ -31,9 +31,9 @@ const routing_handler = function (req, res){
         css.pipe(res);
     }
     else{ // TODO: Change to a default Error404 html file
-        res.writeHead(404, {'Content-Type':'text/plain'});
-			res.write('404 Not Found');
-			res.end();
+        const error404 = fs.createReadStream('html/404.html');
+        res.writeHead(404, {'Content-Type':'text/html'});
+        error404.pipe(res);
     }
 }
 
