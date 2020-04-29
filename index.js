@@ -30,7 +30,7 @@ const routing_handler = function (req, res){
         res.writeHead(200, {'Content-Type':'text/css'});
         css.pipe(res);
     }
-    else{ // TODO: Change to a default Error404 html file
+    else{
         const error404 = fs.createReadStream('html/404.html');
         res.writeHead(404, {'Content-Type':'text/html'});
         error404.pipe(res);
